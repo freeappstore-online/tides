@@ -1,0 +1,135 @@
+@import "tailwindcss";
+
+:root {
+  --paper: #ffffff;
+  --ink: #1a1a1a;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --line-strong: #d1d5db;
+  --panel: #f9fafb;
+  --glass: rgba(255, 255, 255, 0.8);
+  --dock: #ffffff;
+  --success: #16a34a;
+  --warning: #d97706;
+  --error: #dc2626;
+  --accent: #4f46e5;
+  --accent-soft: #818cf8;
+  --cosmic: #6366f1;
+  --star: #facc15;
+  --moon: #f8fafc;
+  --moon-shadow: #1e293b;
+  --night-1: #0b1226;
+  --night-2: #131b3b;
+  font-family: "Manrope", system-ui, sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0b1226;
+    --ink: #f1f5f9;
+    --muted: #94a3b8;
+    --line: #1e293b;
+    --line-strong: #334155;
+    --panel: #131b3b;
+    --glass: rgba(11, 18, 38, 0.8);
+    --dock: #131b3b;
+    --success: #22c55e;
+    --warning: #fbbf24;
+    --error: #ef4444;
+    --accent: #818cf8;
+    --accent-soft: #a5b4fc;
+    --cosmic: #a78bfa;
+  }
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(1200px 800px at 80% -10%, rgba(129, 140, 248, 0.18), transparent 60%),
+    radial-gradient(900px 600px at -10% 100%, rgba(167, 139, 250, 0.12), transparent 60%),
+    var(--paper);
+  color: var(--ink);
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Fraunces", "Manrope", serif;
+  letter-spacing: -0.01em;
+}
+
+/* Animations */
+@keyframes slideUp {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-slideUp {
+  animation: slideUp 0.3s ease-out;
+}
+
+.animate-in {
+  animation: fadeIn 0.2s ease-out;
+}
+
+.animate-twinkle {
+  animation: twinkle 3s ease-in-out infinite;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--line-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Card primitive */
+.card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+
+.card-glass {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
